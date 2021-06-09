@@ -18,16 +18,26 @@ public class Exercise2 {
     }
 
     private static int indexOf(int indexToFind) {
-        Arrays.sort(numbers);
-        int index = Arrays.binarySearch(numbers, indexToFind);
+//        Arrays.sort(numbers);
+//        int index = Arrays.binarySearch(numbers, indexToFind);
+
+        int index = -1;
+
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == indexToFind){
+                index = i;
+                break;
+            }
+        }
 
         if(index >= 0) {
             System.out.println("Index Found!");
             System.out.println("Element: " + indexToFind +" was located at index: " + index);
-            return index;
         }else {
             System.out.println("Could not find element: " + indexToFind);
-            return -1;
         }
+
+        return index;
+
     }
 }
